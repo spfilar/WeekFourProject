@@ -66,5 +66,4 @@ public class Animals {
 		return "Animals [animalID=" + animalID + ", animalName=" + animalName + ", animalType=" + animalType
 				+ ", animalAge=" + animalAge + ", animalHabitat=" + animalHabitat + ", animalFood=" + animalFood + "]";
 	}
-	
 }

@@ -2,6 +2,7 @@ package com.zooanimals;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class DAO {
@@ -14,6 +15,8 @@ public class DAO {
 	static Statement STMT = null;
 	static PreparedStatement PREP_STMT = null;
 	static ResultSet RES_SET = null;
+	
+	static Scanner sc = new Scanner(System.in);
 	
 	public static void connectToDatabase() {
 		
@@ -55,7 +58,57 @@ public class DAO {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}	
+	}
+	
+	public static void writeToDatabase() {
 		
+		Animals animalToAdd = new Animals();
+		
+		animalToAdd = allTheAnimals();
+		
+		connectToDatabase();
+		
+		try {
+			PREP_STMT = CONN.prepareStatement(insertToDatabase);
+			
+			PREP_STMT.setString(1, animalToAdd.getAnimalName());
+			PREP_STMT.setString(2, animalToAdd.getAnimalType());
+			PREP_STMT.setInt(3, animalToAdd.getAnimalAge());
+			PREP_STMT.setString(4, animalToAdd.getAnimalHabitat());
+			PREP_STMT.setString(5, animalToAdd.getAnimalFood());
+			
+			PREP_STMT.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static String insertToDatabase = "INSERT INTO `zoo_animals`.`animal_list`"
+			+ "(animal_name, animal_type, animal_age, animal_habitat, animal_food)"
+			+ " VALUES "
+			+ "(?, ?, ?, ?, ?)";
+	
+	public static Animals allTheAnimals() {
+		
+		Animals animalToAdd = new Animals();
+		
+		System.out.println("What is the animal's name?");
+		animalToAdd.setAnimalName(sc.nextLine());
+		
+		System.out.println("What is the animal's type?");
+		animalToAdd.setAnimalType(sc.nextLine());
+		
+		System.out.println("What is the animal's age?");
+		animalToAdd.setAnimalAge(Integer.parseInt(sc.nextLine()));
+		
+		System.out.println("What is animal's normal habitat?");
+		animalToAdd.setAnimalHabitat(sc.nextLine());
+		
+		System.out.println("What is the animal's food type? (e.g. carnivore)");
+		animalToAdd.setAnimalFood(sc.nextLine());
+		
+		return animalToAdd;		
 	}
 }
