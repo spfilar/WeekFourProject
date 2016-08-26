@@ -65,12 +65,15 @@ public class DAO {
 		
 		Animals animalToAdd = new Animals();
 		
-		animalToAdd = allTheAnimals();
+		animalToAdd = addAllTheAnimals();
 		
 		connectToDatabase();
 		
 		try {
-			PREP_STMT = CONN.prepareStatement(insertToDatabase);
+			PREP_STMT = CONN.prepareStatement("INSERT INTO `zoo_animals`.`animal_list`"
+					+ "(animal_name, animal_type, animal_age, animal_habitat, animal_food)"
+					+ " VALUES "
+					+ "(?, ?, ?, ?, ?)");
 			
 			PREP_STMT.setString(1, animalToAdd.getAnimalName());
 			PREP_STMT.setString(2, animalToAdd.getAnimalType());
@@ -85,12 +88,55 @@ public class DAO {
 		}
 	}
 	
-	public static String insertToDatabase = "INSERT INTO `zoo_animals`.`animal_list`"
-			+ "(animal_name, animal_type, animal_age, animal_habitat, animal_food)"
-			+ " VALUES "
-			+ "(?, ?, ?, ?, ?)";
+	public static void deleteFromDatabase() {
+		
+		connectToDatabase();
+		
+		System.out.println("What is the ID# of the animal you'd like to delete?");
+		
+		String id = sc.nextLine();
+		
+		try {
+			PREP_STMT = CONN.prepareStatement("DELETE FROM `zoo_animals`.`animal_list` WHERE animal_id = ?");
+			PREP_STMT.setString(1, id);
+			PREP_STMT.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
-	public static Animals allTheAnimals() {
+	public static void updateTheDatabase() {
+		
+		System.out.println("What is the ID# of the animal you'd like to update?");
+		
+		int idNumber = Integer.parseInt(sc.nextLine());
+		
+		Animals animalToUpdate = new Animals();
+		
+		animalToUpdate = addAllTheAnimals();
+		
+		connectToDatabase();
+				
+		try {
+			PREP_STMT = CONN.prepareStatement("UPDATE `zoo_animals`.`animal_list` SET"
+					+ " `animal_name` = ?, `animal_type` = ?, `animal_age` = ?, `animal_habitat` = ?,"
+					+ " `animal_food` = ? WHERE `animal_id` = ?;");
+			PREP_STMT.setString(1, animalToUpdate.getAnimalName());
+			PREP_STMT.setString(2, animalToUpdate.getAnimalType());
+			PREP_STMT.setInt(3, animalToUpdate.getAnimalAge());
+			PREP_STMT.setString(4, animalToUpdate.getAnimalHabitat());
+			PREP_STMT.setString(5, animalToUpdate.getAnimalFood());
+			PREP_STMT.setInt(6, idNumber);
+			
+			PREP_STMT.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}			
+	}
+		
+	public static Animals addAllTheAnimals() {
 		
 		Animals animalToAdd = new Animals();
 		
