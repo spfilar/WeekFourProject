@@ -1,149 +1,196 @@
 <!DOCTYPE html>
+
 <html>
 	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="styles.css">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-		<meta charset="ISO-8859-1">
 		<title>Zoo Animals</title>
 	</head>
 	<body>
-		<h1>Zoo Animals List</h1>
-		<table>
-			<tr>
-				<th>Animal ID</th>
-				<th>Name</th>
-				<th>Type</th>
-				<th>Age</th>
-				<th>Habitat</th>
-				<th>Food Type</th>
-			</tr>
-	<!-- Examples of what it would look like with data inserted, using actual data from mySQL table -->
-			<tr>
-				<td>1</td>
-				<td>Xiang Xiang</td>
-				<td>Giant Panda</td>
-				<td>15</td>
-				<td>forests</td>
-				<td>herbivore</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>Dolly</td>
-				<td>Sheep</td>
-				<td>7</td>
-				<td>grasslands</td>
-				<td>herbivore</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>Punxsutawney Phil</td>
-				<td>Groundhog</td>
-				<td>120</td>
-				<td>grasslands</td>
-				<td>herbivore</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>Jumbo</td>
-				<td>African Elephant</td>
-				<td>24</td>
-				<td>savanna</td>
-				<td>herbivore</td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>Simba</td>
-				<td>Lion</td>
-				<td>12</td>
-				<td>savanna</td>
-				<td>carnivore</td>
-			</tr>
-			<tr>
-				<td>6</td>
-				<td>Timon</td>
-				<td>Meerkat</td>
-				<td>14</td>
-				<td>desert</td>
-				<td>carnivore</td>
-			</tr>
-			<tr>
-				<td>7</td>
-				<td>Pumbaa</td>
-				<td>Warthog</td>
-				<td>16</td>
-				<td>desert</td>
-				<td>omnivore</td>
-			</tr>
-			<tr>
-				<td>8</td>
-				<td>Rafiki</td>
-				<td>Mandrill</td>
-				<td>20</td>
-				<td>tropical rainforest</td>
-				<td>omnivore</td>
-			</tr>
-			<tr>
-				<td>9</td>
-				<td>Zazu</td>
-				<td>Hornbill</td>
-				<td>7</td>
-				<td>savanna</td>
-				<td>omnivore</td>
-			</tr>
-			<tr>
-				<td>10</td>
-				<td>Shenzi</td>
-				<td>Spotted Hyena</td>
-				<td>7</td>
-				<td>mixed woodlands</td>
-				<td>carnivore</td>
-			</tr>
-		</table><br>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#"><span class="glyphicon glyphicon-flag"></span>  Home</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-menu-hamburger"></span> Animals</a>
+						<ul class="dropdown-menu">
+							<li><a href="index.html#view-list"><span class="glyphicon glyphicon-triangle-right"></span> View List</a></li>
+							<li><a href="index.html#add"><span class="glyphicon glyphicon-triangle-right"></span> Add Animal</a></li>
+							<li><a href="index.html#update"><span class="glyphicon glyphicon-triangle-right"></span> Update Animal</a></li>
+							<li><a href="index.html#delete"><span class="glyphicon glyphicon-triangle-right"></span> Remove Animal</a></li>					
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="about"><span class="glyphicon glyphicon-grain"></span> About</a></li>
+					<li><a href="mailto:stuart.filar@gmail.com"><span class="glyphicon glyphicon-fire"></span> Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+		<br><br><br>
+		<div name="view-list">
+			<h1>List of Animals</h1><br>
+			<table class="table">
+				<tr>
+					<th>Animal ID</th>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Age</th>
+					<th>Habitat</th>
+					<th>Food Type</th>
+				</tr>
+		<!-- Examples of what it would look like with data inserted, using actual data from mySQL table -->
+				<tr>
+					<td>1</td>
+					<td>Xiang Xiang</td>
+					<td>Giant Panda</td>
+					<td>15</td>
+					<td>forests</td>
+					<td>herbivore</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Dolly</td>
+					<td>Sheep</td>
+					<td>7</td>
+					<td>grasslands</td>
+					<td>herbivore</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Punxsutawney Phil</td>
+					<td>Groundhog</td>
+					<td>120</td>
+					<td>grasslands</td>
+					<td>herbivore</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Jumbo</td>
+					<td>African Elephant</td>
+					<td>24</td>
+					<td>savanna</td>
+					<td>herbivore</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>Simba</td>
+					<td>Lion</td>
+					<td>12</td>
+					<td>savanna</td>
+					<td>carnivore</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>Timon</td>
+					<td>Meerkat</td>
+					<td>14</td>
+					<td>desert</td>
+					<td>carnivore</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>Pumbaa</td>
+					<td>Warthog</td>
+					<td>16</td>
+					<td>desert</td>
+					<td>omnivore</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>Rafiki</td>
+					<td>Mandrill</td>
+					<td>20</td>
+					<td>tropical rainforest</td>
+					<td>omnivore</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>Zazu</td>
+					<td>Hornbill</td>
+					<td>7</td>
+					<td>savanna</td>
+					<td>omnivore</td>
+				</tr>
+				<tr>
+					<td>10</td>
+					<td>Shenzi</td>
+					<td>Spotted Hyena</td>
+					<td>7</td>
+					<td>mixed woodlands</td>
+					<td>carnivore</td>
+				</tr>
+			</table>
+		</div><br><hr><br>
 		<!--Example forms without taking real input-->
-		<div class = "input">
-			<div class = "totalinputs">
-				<p>Add a new animal to the list:</p><hr>
-				<form>
-					Animal name:
-					<input type="text" name="name"><br><hr>
-					Type:
-					<input type="text" name="type"><br><hr>
-					Age:
-					<input type="text" name="age"><br><hr>
-					Habitat:
-					<input type="text" name="habitat"><br><hr>
-					Food type:
-					<input type="text" name="food"><br><hr>
-					<input type="submit" name="Submit">
-				</form>
-			</div>
-			<div class="totalinputs">
-				<p>Update an animal's information:</p><hr>
-				<form>
-					Animal ID:
-					<input type="text" name="id"><br><hr>
-					Name:
-					<input type="text" name="name"><br><hr>
-					Type:
-					<input type="text" name="type"><br><hr>
-					Age:
-					<input type="text" name="age"><br><hr>
-					Habitat:
-					<input type="text" name="habitat"><br><hr>
-					Food type:
-					<input type="text" name="food"><br><hr>
-					<input type="submit" name="Submit">
-				</form>
-			</div>
-			<div class="totalinputs">
-				<p>Delete an animal's entire information:</p><hr>
-				<form>
-					Animal ID:
-					<input type="text" name="id"><br><hr>
-					<input type="submit" name="Submit">
-				</form>
-			</div>
+		<div class="inputs">
+			<form class="col-xs-4">
+				<p>Add an animal:</p>
+				<div class = "form-group" name="add">
+					<label for="name">Name:</label>
+					<input type="name" class="form-control" id="name">
+				</div><br>
+				<div class="form-group">
+					<label for="type">Type:</label>
+					<input type="type" class="form-control" id="type">
+				</div><br>
+				<div class="form-group">
+					<label for="age">Age:</label>
+					<input type="age" class="form-control" id="age">
+				</div><br>
+				<div class="form-group">
+					<label for="habitat">Habitat:</label>
+					<input type="habitat" class="form-control" id="habitat">
+				</div><br>
+				<div class="form-group">
+					<label for="food">Type</label>
+					<input type="food" class="form-control" id="food">
+				</div>
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+			</form>
+			<form class="col-xs-4">
+				<p>Update an animal's info:</p>
+				<div class = "form-group" name="update">
+					<label for="id">ID:</label>
+					<input type="id" class="form-control" id="id">
+				</div><br>
+				<div class = "form-group">
+					<label for="name">Name:</label>
+					<input type="name" class="form-control" id="name">
+				</div><br>
+				<div class="form-group">
+					<label for="type">Type:</label>
+					<input type="type" class="form-control" id="type">
+				</div><br>
+				<div class="form-group">
+					<label for="age">Age:</label>
+					<input type="age" class="form-control" id="age">
+				</div><br>
+				<div class="form-group">
+					<label for="habitat">Habitat:</label>
+					<input type="habitat" class="form-control" id="habitat">
+				</div><br>
+				<div class="form-group">
+					<label for="food">Type</label>
+					<input type="food" class="form-control" id="food">
+				</div>
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+			</form>
+			<form class="col-xs-4">
+				<p>Delete an animal's info:</p>
+				<div class = "form-group" name="delete">
+					<label for="id">ID:</label>
+					<input type="id" class="form-control" id="id">
+				</div>
+				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+			</form>
 		</div>
+		<footer class="end">
+			<div class="col-md-12"><br>&copy 2016 Stuart Filar</div>
+		</footer>
 	</body>
 </html>	

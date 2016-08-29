@@ -1,5 +1,73 @@
-@CHARSET "ISO-8859-1";
+html {
+	background: url(images/lightblue.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: 'Raleway';
+}
 
+body {
+	background: transparent;
+}
+
+.navbar {
+	font-size: 1.5em;
+}
+
+.navbar .navbar-brand {
+	font-size: 1.8em;
+}
+
+.navbar-nav .open .dropdown-menu {
+	font-size: 1em;
+	background-color: black;
+	color: #777;
+}
+
+.navbar-nav .open .dropdown-menu>li>a {
+	color: #777;
+}
+
+h1 {
+	text-align: center;
+	font-size: 4em;
+	color: black;
+
+}
+
+.table {
+	width: 85%;
+	margin-left: 7.5%;
+	background: transparent;
+	color: black;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.table th {
+	text-align: center;
+	border-top: none;
+}
+
+p {
+	font-size: 1.5em;
+}
+
+.inputs {
+	color: black;
+	width: 90%;
+	margin-left: 5%;
+	font-size: 1.3em;
+}
+
+.end {
+	text-align: center;
+	color: black;
+	font-size: 1.2em;
+}
+
+/*
 html {
 	background: radial-gradient(grey, grey, #F7BD38);
 }
@@ -9,9 +77,9 @@ body {
 }
 
 h1 {
-	font-style: italic;
 	text-align: center;
 	font-size: 3em;
+	background: transparent;
 }
 
 table {
@@ -23,9 +91,13 @@ table {
 	color: black;
 }
 
-table, th, td {
-	border: 1px solid white;
+th, td {
+	border-bottom: 1px solid white;
 	border-collapse: collapse;
+}
+
+tr : last-child {
+	border-bottom: none;
 }
 
 table tr th {
@@ -81,3 +153,4 @@ input[type = submit] {
 	background: transparent;
 
 }
+*/
