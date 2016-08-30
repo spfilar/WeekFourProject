@@ -128,65 +128,65 @@
 		</div><br><hr><br>
 		<!--Example forms without taking real input-->
 		<div class="inputs">
-			<form class="col-xs-4">
+			<form class="col-xs-4" action="addToDatabase" method="post">
 				<p>Add an animal:</p>
-				<div class = "form-group" name="add">
-					<label for="name">Name:</label>
-					<input type="name" class="form-control" id="name">
+				<div class = "form-group">
+					Name:
+					<input type="text" class="form-control" name="name">
 				</div><br>
 				<div class="form-group">
-					<label for="type">Type:</label>
-					<input type="type" class="form-control" id="type">
+					Type:
+					<input type="text" class="form-control" name="type">
 				</div><br>
 				<div class="form-group">
-					<label for="age">Age:</label>
-					<input type="age" class="form-control" id="age">
+					Age:
+					<input type="text" class="form-control" name="age">
 				</div><br>
 				<div class="form-group">
-					<label for="habitat">Habitat:</label>
-					<input type="habitat" class="form-control" id="habitat">
+					Habitat:
+					<input type="text" class="form-control" name="habitat">
 				</div><br>
 				<div class="form-group">
-					<label for="food">Type</label>
-					<input type="food" class="form-control" id="food">
+					Food:
+					<input type="text" class="form-control" name="food">
 				</div>
-				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
 			</form>
-			<form class="col-xs-4">
+			<form class="col-xs-4" action="updateToDatabase" method="post">
 				<p>Update an animal's info:</p>
-				<div class = "form-group" name="update">
-					<label for="id">ID:</label>
-					<input type="id" class="form-control" id="id">
+				<div class = "form-group">
+					ID Number:
+					<input type="text" class="form-control" name="updateid">
 				</div><br>
 				<div class = "form-group">
-					<label for="name">Name:</label>
-					<input type="name" class="form-control" id="name">
+					Name:
+					<input type="text" class="form-control" name="updatename">
 				</div><br>
 				<div class="form-group">
-					<label for="type">Type:</label>
-					<input type="type" class="form-control" id="type">
+					Type:
+					<input type="text" class="form-control" name="updatetype">
 				</div><br>
 				<div class="form-group">
-					<label for="age">Age:</label>
-					<input type="age" class="form-control" id="age">
+					Age:
+					<input type="text" class="form-control" name="updateage">
 				</div><br>
 				<div class="form-group">
-					<label for="habitat">Habitat:</label>
-					<input type="habitat" class="form-control" id="habitat">
+					Habitat:
+					<input type="text" class="form-control" name="updatehabitat">
 				</div><br>
 				<div class="form-group">
-					<label for="food">Type</label>
-					<input type="food" class="form-control" id="food">
+					Food:
+					<input type="text" class="form-control" name="updatefood">
 				</div>
-				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
 			</form>
-			<form class="col-xs-4">
+			<form class="col-xs-4" action="deleteToDatabase" method="post">
 				<p>Delete an animal's info:</p>
-				<div class = "form-group" name="delete">
-					<label for="id">ID:</label>
-					<input type="id" class="form-control" id="id">
+				<div class = "form-group">
+					ID:
+					<input type="text" class="form-control" name="deleteid">
 				</div>
-				<button type="submit" class="btn btn-primary pull-right">Submit</button>
+				<button type="submit" value="Submit" class="btn btn-primary pull-right">Submit</button>
 			</form>
 		</div>
 		<footer class="end">

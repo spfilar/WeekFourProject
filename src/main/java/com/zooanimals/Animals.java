@@ -63,7 +63,7 @@ public class Animals {
 
 	@Override
 	public String toString() {
-		return "Animals [animalID=" + animalID + ", animalName=" + animalName + ", animalType=" + animalType
-				+ ", animalAge=" + animalAge + ", animalHabitat=" + animalHabitat + ", animalFood=" + animalFood + "]";
+		return "Animal # " + animalID + "'s name is " + animalName + ", it's a " + animalType
+				+ ". It's " + animalAge + " years old, it's natural habitat is " + animalHabitat + ", and its food type is " + animalFood + ".";
 	}
 }

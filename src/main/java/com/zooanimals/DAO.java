@@ -4,9 +4,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class DAO {
 
+	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql://localhost:3306/?user=root&autoReconnect=true&useSSL=false";
 	static final String USER = "root";
 	static final String PASSWORD = "sesame";
@@ -21,10 +21,14 @@ public class DAO {
 	public static void connectToDatabase() {
 		
 		try {
+			
+			Class.forName(JDBC_DRIVER);
+			
 			System.out.println("Attempting to connect to database..");
 			CONN = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 			System.out.println("Successfully connected to database.");
-		} catch (SQLException e) {
+			
+		} catch (SQLException | ClassNotFoundException e) {
 			System.out.println("Unable to establish connection to database");
 			e.printStackTrace();
 		}
@@ -61,15 +65,16 @@ public class DAO {
 		}	
 	}
 	
-	public static void writeToDatabase() {
+	public static void writeToDatabase(Animals animal) {
 		
 		Animals animalToAdd = new Animals();
 		
-		animalToAdd = addAllTheAnimals();
-		
-		connectToDatabase();
+		animalToAdd = animal;
 		
 		try {
+			
+			connectToDatabase();			
+			
 			PREP_STMT = CONN.prepareStatement("INSERT INTO `zoo_animals`.`animal_list`"
 					+ "(animal_name, animal_type, animal_age, animal_habitat, animal_food)"
 					+ " VALUES "
@@ -88,17 +93,24 @@ public class DAO {
 		}
 	}
 	
-	public static void deleteFromDatabase() {
+	public static void deleteFromDatabase(Animals animal) {
 		
-		connectToDatabase();
+		Animals animalToDelete = new Animals();
+		
+		animalToDelete = animal;
+		
+	/*	readFromDatabase();
 		
 		System.out.println("What is the ID# of the animal you'd like to delete?");
 		
 		String id = sc.nextLine();
-		
+		*/
 		try {
+			
+			connectToDatabase();
+			
 			PREP_STMT = CONN.prepareStatement("DELETE FROM `zoo_animals`.`animal_list` WHERE animal_id = ?");
-			PREP_STMT.setString(1, id);
+			PREP_STMT.setInt(1, animalToDelete.getAnimalID());
 			PREP_STMT.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -106,19 +118,20 @@ public class DAO {
 		}
 	}
 	
-	public static void updateTheDatabase() {
+	public static void updateTheDatabase(Animals animal) {
 		
 		System.out.println("What is the ID# of the animal you'd like to update?");
 		
-		int idNumber = Integer.parseInt(sc.nextLine());
+		//int idNumber = Integer.parseInt(sc.nextLine());
 		
 		Animals animalToUpdate = new Animals();
 		
-		animalToUpdate = addAllTheAnimals();
+		animalToUpdate = animal;
 		
-		connectToDatabase();
-				
 		try {
+			
+			connectToDatabase();
+			
 			PREP_STMT = CONN.prepareStatement("UPDATE `zoo_animals`.`animal_list` SET"
 					+ " `animal_name` = ?, `animal_type` = ?, `animal_age` = ?, `animal_habitat` = ?,"
 					+ " `animal_food` = ? WHERE `animal_id` = ?;");
@@ -127,7 +140,7 @@ public class DAO {
 			PREP_STMT.setInt(3, animalToUpdate.getAnimalAge());
 			PREP_STMT.setString(4, animalToUpdate.getAnimalHabitat());
 			PREP_STMT.setString(5, animalToUpdate.getAnimalFood());
-			PREP_STMT.setInt(6, idNumber);
+			PREP_STMT.setInt(6, animalToUpdate.getAnimalID());
 			
 			PREP_STMT.executeUpdate();
 			
